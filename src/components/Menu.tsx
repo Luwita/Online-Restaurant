@@ -65,7 +65,7 @@ export default function Menu() {
   const popularItems = filteredItems.filter(item => item.popularity && item.popularity >= 4);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen bg-black">
       {/* Header */}
       <div className="glass sticky top-0 z-40 border-b border-white/20">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
@@ -97,7 +97,7 @@ export default function Menu() {
               >
                 <Filter className="w-4 h-4 sm:w-5 sm:h-5" />
                 {activeFiltersCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-gradient-primary text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center font-bold animate-pulse">
+                  <span className="absolute -top-1 -right-1 bg-white text-black text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center font-bold animate-pulse">
                     {activeFiltersCount}
                   </span>
                 )}
@@ -109,7 +109,7 @@ export default function Menu() {
               >
                 <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
                 {cartItemsCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-secondary text-white text-xs rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center font-bold animate-bounce">
+                  <span className="absolute -top-2 -right-2 bg-white text-black text-xs rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center font-bold animate-bounce">
                     {cartItemsCount}
                   </span>
                 )}
@@ -157,7 +157,7 @@ export default function Menu() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex-shrink-0 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 animate-slide-right ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-primary text-white shadow-medium scale-105'
+                    ? 'bg-white text-black shadow-medium scale-105'
                     : 'glass text-gray-300 hover:text-white border border-white/20'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -187,12 +187,12 @@ export default function Menu() {
           
           <div className="flex items-center space-x-3 sm:space-x-6 text-xs sm:text-sm">
             {popularItems.length > 0 && (
-              <div className="flex items-center space-x-1 text-yellow-400">
+              <div className="flex items-center space-x-1 text-white">
                 <Award className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="font-medium">{popularItems.length} Popular</span>
               </div>
             )}
-            <div className="flex items-center space-x-1 text-blue-400">
+            <div className="flex items-center space-x-1 text-white">
               <Package className="w-3 h-3 sm:w-4 sm:h-4" />
               <span className="font-medium">{filteredItems.length} Available</span>
             </div>
@@ -205,9 +205,9 @@ export default function Menu() {
         <div className="glass-card mx-3 sm:mx-4 lg:mx-6 mb-6">
           <div className="p-4">
             <div className="flex items-center space-x-2 mb-3">
-              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               <h3 className="text-base sm:text-lg font-semibold text-white">Most Popular</h3>
-              <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-white animate-pulse" />
             </div>
             <div className="flex space-x-3 sm:space-x-4 overflow-x-auto pb-2 scrollbar-hide">
               {popularItems.slice(0, 5).map((item, index) => (
@@ -227,7 +227,7 @@ export default function Menu() {
                       <div className="flex items-center space-x-1 sm:space-x-2">
                         <span className="text-white font-bold text-xs sm:text-sm">K{item.price.toFixed(2)}</span>
                         <div className="flex items-center space-x-1">
-                          <Star className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400 fill-current" />
+                          <Star className="w-2 h-2 sm:w-3 sm:h-3 text-white fill-current" />
                           <span className="text-xs text-gray-300">{item.popularity}</span>
                         </div>
                       </div>

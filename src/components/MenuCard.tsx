@@ -91,7 +91,7 @@ export default function MenuCard({ item }: MenuCardProps) {
   };
 
   return (
-    <div className="glass-card hover-lift group overflow-hidden">
+    <div className="glass-card hover-lift group overflow-hidden bg-white/5 border border-white/10">
       {/* Image Section */}
       <div className="relative h-32 sm:h-40 overflow-hidden rounded-t-2xl">
         <img
@@ -106,7 +106,7 @@ export default function MenuCard({ item }: MenuCardProps) {
         
         {/* Loading placeholder */}
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-600 animate-shimmer"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 animate-shimmer"></div>
         )}
         
         {/* Overlay with actions */}
@@ -134,7 +134,7 @@ export default function MenuCard({ item }: MenuCardProps) {
           <button
             onClick={handleLike}
             className={`p-1.5 rounded-full transition-all duration-200 hover:scale-110 ${
-              isLiked ? 'bg-gradient-secondary text-white' : 'glass text-white hover:bg-white/20'
+              isLiked ? 'bg-white text-black' : 'glass text-white hover:bg-white/20'
             }`}
           >
             <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isLiked ? 'fill-current' : ''}`} />
@@ -173,7 +173,7 @@ export default function MenuCard({ item }: MenuCardProps) {
             </h3>
             {item.popularity && (
               <div className="flex items-center space-x-1 ml-2">
-                <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                <Star className="w-3 h-3 text-white fill-current" />
                 <span className="text-xs font-medium text-gray-300">{item.popularity}</span>
               </div>
             )}
@@ -207,7 +207,7 @@ export default function MenuCard({ item }: MenuCardProps) {
         {showNutrition && item.nutritionalInfo && (
           <div className="mb-3 glass-dark p-2 sm:p-3 rounded-lg">
             <h5 className="font-medium text-white mb-2 text-xs sm:text-sm flex items-center space-x-1">
-              <Sparkles className="w-3 h-3 text-yellow-400" />
+              <Sparkles className="w-3 h-3 text-white" />
               <span>Nutrition (per serving):</span>
             </h5>
             <div className="grid grid-cols-2 gap-1 sm:gap-2 text-xs text-gray-300">
@@ -304,7 +304,7 @@ export default function MenuCard({ item }: MenuCardProps) {
             <button
               onClick={handleLike}
               className={`flex items-center space-x-1 transition-colors hover-scale ${
-                isLiked ? 'text-pink-400' : 'hover:text-white'
+                isLiked ? 'text-white' : 'hover:text-white'
               }`}
             >
               <Heart className={`w-2 h-2 sm:w-3 sm:h-3 ${isLiked ? 'fill-current' : ''}`} />

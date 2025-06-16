@@ -44,46 +44,46 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
+      <div className="glass sticky top-0 z-40 border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
               <button
                 onClick={() => navigate('/')}
-                className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-all duration-200 hover:scale-105 bg-gray-100 rounded-lg px-4 py-2"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-200 hover:scale-105 glass rounded-lg px-4 py-2"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span className="font-medium">Back to Home</span>
               </button>
               
-              <div className="h-8 w-px bg-gray-300" />
+              <div className="h-8 w-px bg-white/30" />
               
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">
+                <h1 className="text-2xl font-bold text-white">
                   Restaurant Dashboard
                 </h1>
-                <p className="text-gray-600 text-sm mt-1">Manage your restaurant operations</p>
+                <p className="text-gray-300 text-sm mt-1">Manage your restaurant operations</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setShowNotifications(true)}
-                className="relative p-3 text-gray-600 hover:text-gray-900 transition-all duration-200 hover:scale-110 bg-gray-100 rounded-lg border border-gray-200"
+                className="relative p-3 text-gray-300 hover:text-white transition-all duration-200 hover:scale-110 glass rounded-lg border border-white/20"
               >
                 <Bell className="w-6 h-6" />
                 {unreadNotifications > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+                  <span className="absolute -top-1 -right-1 bg-white text-black text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
                     {unreadNotifications}
                   </span>
                 )}
               </button>
               
-              <div className="text-right bg-gray-100 rounded-lg px-4 py-2 border border-gray-200">
-                <p className="text-sm text-gray-600">{format(new Date(), 'PPP')}</p>
-                <p className="text-xs text-gray-500">{format(new Date(), 'p')}</p>
+              <div className="text-right glass rounded-lg px-4 py-2 border border-white/20">
+                <p className="text-sm text-gray-300">{format(new Date(), 'PPP')}</p>
+                <p className="text-xs text-gray-400">{format(new Date(), 'p')}</p>
               </div>
             </div>
           </div>
@@ -93,76 +93,76 @@ export default function AdminDashboard() {
       {/* Stats Cards */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
+          <div className="glass rounded-lg p-6 border border-white/20 hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Pending Orders</p>
-                <p className="text-3xl font-bold text-gray-900">{orderStats.pending}</p>
+                <p className="text-sm font-medium text-gray-300">Pending Orders</p>
+                <p className="text-3xl font-bold text-white">{orderStats.pending}</p>
                 <div className="flex items-center space-x-1 mt-2">
-                  <span className="text-xs text-gray-500">Needs attention</span>
+                  <span className="text-xs text-gray-400">Needs attention</span>
                 </div>
               </div>
-              <Clock className="w-10 h-10 text-gray-600" />
+              <Clock className="w-10 h-10 text-gray-300" />
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
+          <div className="glass rounded-lg p-6 border border-white/20 hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Preparing</p>
-                <p className="text-3xl font-bold text-gray-900">{orderStats.preparing}</p>
+                <p className="text-sm font-medium text-gray-300">Preparing</p>
+                <p className="text-3xl font-bold text-white">{orderStats.preparing}</p>
                 <div className="flex items-center space-x-1 mt-2">
-                  <span className="text-xs text-gray-500">In kitchen</span>
+                  <span className="text-xs text-gray-400">In kitchen</span>
                 </div>
               </div>
-              <Package className="w-10 h-10 text-gray-600" />
+              <Package className="w-10 h-10 text-gray-300" />
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
+          <div className="glass rounded-lg p-6 border border-white/20 hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Ready</p>
-                <p className="text-3xl font-bold text-gray-900">{orderStats.ready}</p>
+                <p className="text-sm font-medium text-gray-300">Ready</p>
+                <p className="text-3xl font-bold text-white">{orderStats.ready}</p>
                 <div className="flex items-center space-x-1 mt-2">
-                  <span className="text-xs text-gray-500">For pickup</span>
+                  <span className="text-xs text-gray-400">For pickup</span>
                 </div>
               </div>
-              <CheckCircle className="w-10 h-10 text-gray-600" />
+              <CheckCircle className="w-10 h-10 text-gray-300" />
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
+          <div className="glass rounded-lg p-6 border border-white/20 hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Completed</p>
-                <p className="text-3xl font-bold text-gray-900">{orderStats.completed}</p>
+                <p className="text-sm font-medium text-gray-300">Completed</p>
+                <p className="text-3xl font-bold text-white">{orderStats.completed}</p>
                 <div className="flex items-center space-x-1 mt-2">
-                  <span className="text-xs text-gray-500">Happy customers</span>
+                  <span className="text-xs text-gray-400">Happy customers</span>
                 </div>
               </div>
-              <Users className="w-10 h-10 text-gray-600" />
+              <Users className="w-10 h-10 text-gray-300" />
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
+          <div className="glass rounded-lg p-6 border border-white/20 hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Today's Revenue</p>
-                <p className="text-3xl font-bold text-gray-900">K{orderStats.totalRevenue.toFixed(0)}</p>
+                <p className="text-sm font-medium text-gray-300">Today's Revenue</p>
+                <p className="text-3xl font-bold text-white">K{orderStats.totalRevenue.toFixed(0)}</p>
                 <div className="flex items-center space-x-1 mt-2">
-                  <span className="text-xs text-gray-500">Daily earnings</span>
+                  <span className="text-xs text-gray-400">Daily earnings</span>
                 </div>
               </div>
-              <TrendingUp className="w-10 h-10 text-gray-600" />
+              <TrendingUp className="w-10 h-10 text-gray-300" />
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="glass rounded-lg border border-white/20">
           {/* Tabs */}
-          <div className="border-b border-gray-200">
+          <div className="border-b border-white/20">
             <nav className="-mb-px flex">
               {tabs.map(({ id, label, icon: Icon }) => (
                 <button
@@ -170,8 +170,8 @@ export default function AdminDashboard() {
                   onClick={() => setActiveTab(id as any)}
                   className={`py-6 px-8 border-b-2 font-semibold text-sm flex items-center space-x-3 transition-all duration-300 ${
                     activeTab === id
-                      ? 'border-black text-gray-900 bg-gray-50'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      ? 'border-white text-white bg-white/5'
+                      : 'border-transparent text-gray-400 hover:text-white hover:border-white/30'
                   }`}
                 >
                   <Icon className="w-5 h-5" />

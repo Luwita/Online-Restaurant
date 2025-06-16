@@ -50,20 +50,20 @@ export default function QRCodeLanding() {
   );
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-        <div className={`absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20`}></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.02\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       </div>
 
       {/* Floating Decorative Elements */}
-      <FloatingElement delay={0} className="absolute top-20 left-10 text-purple-300 opacity-30">
+      <FloatingElement delay={0} className="absolute top-20 left-10 text-white opacity-10">
         <Sparkles className="w-8 h-8" />
       </FloatingElement>
-      <FloatingElement delay={2} className="absolute top-40 right-20 text-blue-300 opacity-30">
+      <FloatingElement delay={2} className="absolute top-40 right-20 text-white opacity-10">
         <Award className="w-6 h-6" />
       </FloatingElement>
-      <FloatingElement delay={4} className="absolute bottom-40 left-20 text-indigo-300 opacity-30">
+      <FloatingElement delay={4} className="absolute bottom-40 left-20 text-white opacity-10">
         <Users className="w-7 h-7" />
       </FloatingElement>
 
@@ -76,15 +76,15 @@ export default function QRCodeLanding() {
                 <div className="mx-auto w-24 h-24 glass rounded-full flex items-center justify-center animate-pulse-glow">
                   <Utensils className="w-12 h-12 text-white" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-white" />
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-black" />
                 </div>
               </div>
               
               <h1 className="text-3xl font-bold text-white mb-3 text-glow">
                 {restaurant.name}
               </h1>
-              <p className="text-gray-200 text-sm leading-relaxed mb-6">
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
                 {restaurant.description}
               </p>
               
@@ -110,10 +110,10 @@ export default function QRCodeLanding() {
             {/* Restaurant details */}
             <div className="space-y-4 mb-8">
               {[
-                { icon: MapPin, text: restaurant.address, color: "text-blue-400" },
-                { icon: Phone, text: restaurant.phone, color: "text-green-400" },
-                { icon: Clock, text: getCurrentTime(), color: "text-yellow-400" },
-                { icon: Star, text: "4.8 ★ (1,234 reviews)", color: "text-orange-400" }
+                { icon: MapPin, text: restaurant.address, color: "text-white" },
+                { icon: Phone, text: restaurant.phone, color: "text-white" },
+                { icon: Clock, text: getCurrentTime(), color: "text-white" },
+                { icon: Star, text: "4.8 ★ (1,234 reviews)", color: "text-white" }
               ].map((item, index) => (
                 <div 
                   key={index}
@@ -190,20 +190,20 @@ export default function QRCodeLanding() {
             <div className="mt-8 pt-8 border-t border-white/20">
               <div className="text-center mb-6">
                 <h3 className="text-white font-bold mb-4 text-lg flex items-center justify-center space-x-2">
-                  <Sparkles className="w-5 h-5 text-yellow-400" />
+                  <Sparkles className="w-5 h-5 text-white" />
                   <span>Featured Cuisines</span>
-                  <Sparkles className="w-5 h-5 text-yellow-400" />
+                  <Sparkles className="w-5 h-5 text-white" />
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { emoji: "🍲", name: "Traditional Zambian", gradient: "from-orange-500 to-red-500" },
-                    { emoji: "🌍", name: "African Fusion", gradient: "from-green-500 to-emerald-500" },
-                    { emoji: "🍽️", name: "Continental", gradient: "from-blue-500 to-cyan-500" },
-                    { emoji: "🍛", name: "Indian Cuisine", gradient: "from-purple-500 to-pink-500" }
+                    { emoji: "🍲", name: "Traditional Zambian" },
+                    { emoji: "🌍", name: "African Fusion" },
+                    { emoji: "🍽️", name: "Continental" },
+                    { emoji: "🍛", name: "Indian Cuisine" }
                   ].map((cuisine, index) => (
                     <div
                       key={index}
-                      className={`glass p-4 rounded-xl hover-scale cursor-pointer bg-gradient-to-r ${cuisine.gradient} bg-opacity-20`}
+                      className="glass p-4 rounded-xl hover-scale cursor-pointer"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="text-2xl mb-2">{cuisine.emoji}</div>

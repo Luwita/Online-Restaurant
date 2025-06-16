@@ -70,31 +70,31 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      <div className="absolute inset-0 bg-black bg-opacity-50" onClick={onClose} />
+      <div className="absolute inset-0 bg-black bg-opacity-80" onClick={onClose} />
       
-      <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl">
+      <div className="absolute right-0 top-0 h-full w-full max-w-md glass shadow-xl">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="bg-orange-600 text-white p-4 flex items-center justify-between">
+          <div className="bg-black text-white p-4 flex items-center justify-between border-b border-white/20">
             <div>
               <h2 className="text-lg font-semibold">Your Order</h2>
               {state.cart.length > 0 && (
-                <div className="flex items-center space-x-2 text-orange-100 text-sm">
+                <div className="flex items-center space-x-2 text-gray-300 text-sm">
                   <Clock className="w-4 h-4" />
                   <span>Est. {estimatedTime} min</span>
                 </div>
               )}
             </div>
-            <button onClick={onClose} className="p-1 hover:bg-orange-700 rounded">
+            <button onClick={onClose} className="p-1 hover:bg-white/20 rounded">
               <X className="w-5 h-5" />
             </button>
           </div>
 
           <div className="flex-1 overflow-y-auto">
             {state.cart.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full text-gray-500 p-8">
+              <div className="flex flex-col items-center justify-center h-full text-gray-400 p-8">
                 <ShoppingBag className="w-16 h-16 mb-4" />
-                <h3 className="text-lg font-medium mb-2">Your cart is empty</h3>
+                <h3 className="text-lg font-medium mb-2 text-white">Your cart is empty</h3>
                 <p className="text-center text-sm">Add some delicious items from our menu to get started!</p>
               </div>
             ) : (
@@ -102,13 +102,13 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                 {/* Cart Items */}
                 <div className="space-y-4">
                   {state.cart.map((item) => (
-                    <div key={item.id} className="bg-gray-50 rounded-lg p-4">
+                    <div key={item.id} className="glass rounded-lg p-4 border border-white/20">
                       <div className="flex justify-between items-start mb-3">
                         <div className="flex-1">
-                          <h3 className="font-medium text-gray-900">{item.name}</h3>
-                          <p className="text-sm text-gray-600 mt-1">K{item.price.toFixed(2)} each</p>
+                          <h3 className="font-medium text-white">{item.name}</h3>
+                          <p className="text-sm text-gray-300 mt-1">K{item.price.toFixed(2)} each</p>
                         </div>
-                        <span className="font-bold text-orange-600">
+                        <span className="font-bold text-white">
                           K{(item.price * item.quantity).toFixed(2)}
                         </span>
                       </div>
@@ -117,14 +117,14 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
-                            className="bg-white border border-gray-300 hover:bg-gray-50 w-8 h-8 rounded-full flex items-center justify-center"
+                            className="glass border border-white/20 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center"
                           >
-                            <Minus className="w-4 h-4" />
+                            <Minus className="w-4 h-4 text-white" />
                           </button>
-                          <span className="font-medium w-8 text-center">{item.quantity}</span>
+                          <span className="font-medium w-8 text-center text-white">{item.quantity}</span>
                           <button
                             onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
-                            className="bg-orange-600 hover:bg-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                            className="bg-white hover:bg-gray-200 text-black w-8 h-8 rounded-full flex items-center justify-center"
                           >
                             <Plus className="w-4 h-4" />
                           </button>
@@ -137,7 +137,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                         value={item.specialInstructions || ''}
                         onChange={(e) => handleUpdateInstructions(item.id, e.target.value)}
                         rows={2}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none"
+                        className="w-full px-3 py-2 text-sm glass border border-white/20 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 resize-none text-white placeholder-gray-400"
                       />
                     </div>
                   ))}
@@ -145,14 +145,14 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
                 {/* Delivery Type */}
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-3">Order Type</h3>
+                  <h3 className="font-medium text-white mb-3">Order Type</h3>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setDeliveryType('dine-in')}
                       className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
                         deliveryType === 'dine-in'
-                          ? 'border-orange-600 bg-orange-50 text-orange-700'
-                          : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                          ? 'border-white bg-white/20 text-white'
+                          : 'border-white/20 text-gray-300 hover:bg-white/10'
                       }`}
                     >
                       Dine In
@@ -161,8 +161,8 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                       onClick={() => setDeliveryType('takeaway')}
                       className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
                         deliveryType === 'takeaway'
-                          ? 'border-orange-600 bg-orange-50 text-orange-700'
-                          : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                          ? 'border-white bg-white/20 text-white'
+                          : 'border-white/20 text-gray-300 hover:bg-white/10'
                       }`}
                     >
                       Takeaway
@@ -172,14 +172,14 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
                 {/* Customer Details */}
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-4">Contact Information</h3>
+                  <h3 className="font-medium text-white mb-4">Contact Information</h3>
                   <div className="space-y-3">
                     <input
                       type="text"
                       placeholder="Your name *"
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      className="w-full px-3 py-2 glass border border-white/20 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-gray-400"
                       required
                     />
                     <input
@@ -187,7 +187,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                       placeholder="Phone number * (e.g., +260 97 123 4567)"
                       value={customerPhone}
                       onChange={(e) => setCustomerPhone(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      className="w-full px-3 py-2 glass border border-white/20 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-gray-400"
                       required
                     />
                     <input
@@ -195,31 +195,31 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                       placeholder="Email (optional)"
                       value={customerEmail}
                       onChange={(e) => setCustomerEmail(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      className="w-full px-3 py-2 glass border border-white/20 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-gray-400"
                     />
                   </div>
                 </div>
 
                 {/* Payment Method */}
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-3">Payment Method</h3>
+                  <h3 className="font-medium text-white mb-3">Payment Method</h3>
                   <div className="space-y-2">
                     {[
                       { id: 'cash', label: 'Cash', icon: Banknote },
                       { id: 'mobile-money', label: 'Mobile Money', icon: Smartphone },
                       { id: 'card', label: 'Card', icon: CreditCard },
                     ].map(({ id, label, icon: Icon }) => (
-                      <label key={id} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                      <label key={id} className="flex items-center p-3 border border-white/20 rounded-lg cursor-pointer hover:bg-white/10">
                         <input
                           type="radio"
                           name="payment"
                           value={id}
                           checked={paymentMethod === id}
                           onChange={(e) => setPaymentMethod(e.target.value as any)}
-                          className="text-orange-600 focus:ring-orange-500"
+                          className="text-white focus:ring-white/50"
                         />
-                        <Icon className="w-5 h-5 ml-3 mr-2 text-gray-600" />
-                        <span className="text-sm font-medium text-gray-700">{label}</span>
+                        <Icon className="w-5 h-5 ml-3 mr-2 text-gray-300" />
+                        <span className="text-sm font-medium text-white">{label}</span>
                       </label>
                     ))}
                   </div>
@@ -227,7 +227,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
                 {/* Order Notes */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     <MessageSquare className="w-4 h-4 inline mr-1" />
                     Order Notes (Optional)
                   </label>
@@ -236,7 +236,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none"
+                    className="w-full px-3 py-2 glass border border-white/20 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 resize-none text-white placeholder-gray-400"
                   />
                 </div>
               </div>
@@ -245,21 +245,21 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
           {/* Footer */}
           {state.cart.length > 0 && (
-            <div className="border-t bg-white p-4">
+            <div className="border-t border-white/20 glass p-4">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-lg font-semibold">Total:</span>
-                <span className="text-xl font-bold text-orange-600">K{total.toFixed(2)}</span>
+                <span className="text-lg font-semibold text-white">Total:</span>
+                <span className="text-xl font-bold text-white">K{total.toFixed(2)}</span>
               </div>
               
               <button
                 onClick={handlePlaceOrder}
                 disabled={!customerName.trim() || !customerPhone.trim()}
-                className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="w-full bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors disabled:bg-gray-600 disabled:cursor-not-allowed"
               >
                 Place Order
               </button>
               
-              <p className="text-xs text-gray-500 text-center mt-2">
+              <p className="text-xs text-gray-400 text-center mt-2">
                 * Required fields
               </p>
             </div>
