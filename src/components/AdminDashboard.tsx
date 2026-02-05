@@ -3,24 +3,24 @@ import { useApp } from '../context/AppContext';
 import { ArrowLeft, Clock, CheckCircle, Package, Users, TrendingUp, Bell, Settings, BarChart3 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
-import OrderCard from './OrderCard';
 import NotificationPanel from './NotificationPanel';
 import EnhancedAnalyticsDashboard from './EnhancedAnalyticsDashboard';
 import MenuManagement from './MenuManagement';
-import SettingsPanel from './SettingsPanel';
 import OrderManagement from './OrderManagement';
+const SettingsPanel: React.FC = () => {
+  return (
+    <div className="text-gray-300">
+      <h2 className="text-xl font-semibold text-white mb-4">Settings</h2>
+      <p className="text-sm text-gray-400">Settings panel not yet implemented.</p>
+    </div>
+  );
+};
 
 export default function AdminDashboard() {
   const { state } = useApp();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'orders' | 'menu' | 'analytics' | 'settings'>('orders');
-  const [orderFilter, setOrderFilter] = useState<'all' | 'pending' | 'preparing' | 'ready' | 'completed'>('all');
   const [showNotifications, setShowNotifications] = useState(false);
-
-  const filteredOrders = useMemo(() => {
-    if (orderFilter === 'all') return state.orders;
-    return state.orders.filter(order => order.status === orderFilter);
-  }, [state.orders, orderFilter]);
 
   const orderStats = useMemo(() => {
     const pending = state.orders.filter(order => order.status === 'pending').length;
@@ -36,7 +36,9 @@ export default function AdminDashboard() {
 
   const unreadNotifications = state.notifications.filter(n => !n.read).length;
 
-  const tabs = [
+  // strongly type tab ids to match activeTab's union and type the icon
+  type TabId = 'orders' | 'menu' | 'analytics' | 'settings';
+  const tabs: { id: TabId; label: string; icon: React.ComponentType<any> }[] = [
     { id: 'orders', label: 'Orders', icon: Package },
     { id: 'menu', label: 'Menu', icon: Settings },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
@@ -167,7 +169,7 @@ export default function AdminDashboard() {
               {tabs.map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
-                  onClick={() => setActiveTab(id as any)}
+                  onClick={() => setActiveTab(id)}
                   className={`py-6 px-8 border-b-2 font-semibold text-sm flex items-center space-x-3 transition-all duration-300 ${
                     activeTab === id
                       ? 'border-white text-white bg-white/5'
