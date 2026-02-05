@@ -1,4 +1,3 @@
-import React from 'react';
 import { useApp } from '../context/AppContext';
 import { TrendingUp, Users, DollarSign, Clock, Star, Award } from 'lucide-react';
 

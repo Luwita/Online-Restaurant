@@ -20,6 +20,34 @@ export const restaurant: Restaurant = {
     instagram: 'https://instagram.com/lusakaintercontinental',
     twitter: 'https://twitter.com/lusaka_inter',
   },
+  id: '',
+  cuisine: [],
+  rating: 0,
+  reviewCount: 0,
+  priceRange: '$',
+  settings: {
+    acceptsOnlineOrders: false,
+    deliveryEnabled: false,
+    takeawayEnabled: false,
+    dineInEnabled: false,
+    currency: '',
+    language: '',
+    timezone: '',
+    taxRate: 0,
+    serviceCharge: 0
+  },
+  location: {
+    latitude: 0,
+    longitude: 0,
+    city: '',
+    state: '',
+    country: '',
+    zipCode: ''
+  },
+  zones: [],
+  isActive: false,
+  createdAt: new Date(),
+  updatedAt: new Date()
 };
 
 export const categories: Category[] = [

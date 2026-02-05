@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Upload, Plus, Minus } from 'lucide-react';
+import { X, Plus, Minus } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { categories } from '../data/menuData';
 import { MenuItem } from '../types';

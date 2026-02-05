@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import QRCodeLanding from './components/QRCodeLanding';
 import Menu from './components/Menu';
 import OrderConfirmed from './components/OrderConfirmed';
 import AdminDashboard from './components/AdminDashboard';
-import MultiLanguageSelector from './components/MultiLanguageSelector';
-import CurrencySelector from './components/CurrencySelector';
-import RestaurantSelector from './components/RestaurantSelector';
 import PaymentGateway from './components/PaymentGateway';
 import LiveChat from './components/LiveChat';
 import RatingReviewModal from './components/RatingReviewModal';
@@ -16,14 +13,14 @@ import ZoneSelector from './components/ZoneSelector';
 import { Globe, DollarSign, Store, MessageCircle, Settings } from 'lucide-react';
 
 function App() {
-  const [showLanguageSelector, setShowLanguageSelector] = useState(false);
-  const [showCurrencySelector, setShowCurrencySelector] = useState(false);
-  const [showRestaurantSelector, setShowRestaurantSelector] = useState(false);
+  const [, setShowLanguageSelector] = useState(false);
+  const [, setShowCurrencySelector] = useState(false);
+  const [, setShowRestaurantSelector] = useState(false);
   const [showPaymentGateway, setShowPaymentGateway] = useState(false);
   const [showLiveChat, setShowLiveChat] = useState(false);
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [showZoneSelector, setShowZoneSelector] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedOrder] = useState<any | null>(null);
 
   return (
     <AppProvider>
@@ -81,21 +78,7 @@ function App() {
           </button>
 
           {/* Modals */}
-          <MultiLanguageSelector 
-            isOpen={showLanguageSelector} 
-            onClose={() => setShowLanguageSelector(false)} 
-          />
-          
-          <CurrencySelector 
-            isOpen={showCurrencySelector} 
-            onClose={() => setShowCurrencySelector(false)} 
-          />
-          
-          <RestaurantSelector 
-            isOpen={showRestaurantSelector} 
-            onClose={() => setShowRestaurantSelector(false)} 
-          />
-          
+                 
           <ZoneSelector 
             isOpen={showZoneSelector} 
             onClose={() => setShowZoneSelector(false)} 
